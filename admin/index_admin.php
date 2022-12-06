@@ -54,6 +54,7 @@
                     $pro_price = $_POST['don_gia'];
                     // $giam_gia = $_POST['giam_gia'];
                     $pro_desc = $_POST['mo_ta'];
+                    $chat_lieu = $_POST['chat_lieu'];
                     $cate_id = $_POST['category'];
 
                     $target_file = "../upload/". $_FILES['hinh_anh']['name'];
@@ -65,7 +66,7 @@
                     }
                     if(empty($error)){
                         move_uploaded_file($_FILES['hinh_anh']['tmp_name'],$target_file);
-                        add_pro($pro_name, $pro_price, $target_file, $pro_desc, $cate_id);
+                        add_pro($pro_name, $pro_price, $target_file, $pro_desc, $chat_lieu, $cate_id);
                         $thong_bao = "<span class = 'text-red-500'>Thêm sản phẩm thành công </span>";
                     }
                 }
