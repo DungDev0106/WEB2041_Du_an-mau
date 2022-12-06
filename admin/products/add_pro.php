@@ -55,6 +55,12 @@
                         ?>
                     </select>
                 </div>
+                <div>
+                    <label for="chat_lieu">Chất liệu</label>
+                    <input class="border w-full rounded-[4px] px-3 h-[40px]"
+                           type="text" name="chat_lieu" id="chat_lieu"
+                           placeholder="Chất liệu sản phẩm">
+                </div>
             </div>
             <div>
                 <label for="mo_ta">Mô tả</label>
