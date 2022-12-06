@@ -13,9 +13,9 @@
                            type="text" disabled name="ma_loai"
                            placeholder="Auto number"
                            value="<?php echo $one_cate['cate_id']?>">
-                    <p>Tên loại</p>
+                    <label for="ten_loai">Tên loại hàng</label>
                     <input class="border w-full rounded-[4px] h-[40px] px-3 border-[#FFC0CB]"
-                           type="text" name="ten_loai" required
+                           type="text" name="ten_loai" required id = "ten_loai"
                            title="Tên loại hàng"
                            placeholder="Tên loại hàng.."
                            value="<?php echo $one_cate['cate_name']?>">

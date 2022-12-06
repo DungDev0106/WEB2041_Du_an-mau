@@ -2,15 +2,15 @@
 <p class="p-3 text-[28px] border bg-[#EEE] rounded-md">
                 THÊM MỚI LOẠI HÀNG
             </p>
-            <div class="form mt-5 leading-8">
+            <div class="form mt-5 leading-9">
                 <form action="index_admin.php?act=add_cate" method="POST" autocomplete="on">
                     <p>Mã loại hàng</p>
                     <input class="border w-full rounded-[4px] h-[40px] px-3 border-[#FFC0CB]"
                            type="text" disabled name="ma_loai"
                            placeholder="Auto number">
-                    <p>Tên loại</p>
+                    <label for="ten_loai">Tên loại hàng</label>
                     <input class="border w-full rounded-[4px] h-[40px] px-3 border-[#FFC0CB]"
-                           type="text" name="ten_loai" required
+                           type="text" name="ten_loai" required id = "ten_loai"
                            title="Tên loại hàng"
                            placeholder="Tên loại hàng..">
                     

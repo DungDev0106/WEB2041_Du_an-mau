@@ -8,7 +8,7 @@
 <?php if(isset($thong_bao)) echo $thong_bao?>
 <div class="list_cate mt-6 w-full">
     <table class="border w-full mx-auto ">
-        <tr class="bg-[#D9D9D9] py-2 border text-center" >
+        <tr class="bg-[#FFC0CB] py-2 border text-center text-red-600" >
             <td class="w-[55px] "></td>
             <td title="Mã loại hàng" class="w-[140px] text-center">Mã Loại Hàng</td>
             <td title="Tên loại hàng" class="text-center">Tên Loại Hàng</td>
@@ -20,7 +20,7 @@
             <tr class="show ">
                 <td class="text-center"><input type="checkbox"></td>
                 <td class="text-center"><?php echo $cate['cate_id']?></td>
-                <td class="pl-[20px]" title="<?php echo $cate['cate_name']?>"><?php echo $cate['cate_name']?></td>
+                <td class="pl-[20px] hover:bg-[#FFEEEE]" title="<?php echo $cate['cate_name']?>"><?php echo $cate['cate_name']?></td>
                 <td class="text-center">
                     <a href="index_admin.php?act=edit_cate&cate_id=<?php echo $cate['cate_id']?>">Sửa</a>
                     <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
@@ -59,15 +59,12 @@
         table{
             border-collapse: collapse;
         }
-        /* .show>td{
-            text-align:center;
-        } */
         tr>td{
             padding: 7px 0;
             border: 1px solid gray;
         }
         .show a{
-            padding: 2px 5px;
+            padding: 4px 8px;
             margin-right: 5px;
             background-color: #FFC0CB;
             border: 1px solid darkgray;
