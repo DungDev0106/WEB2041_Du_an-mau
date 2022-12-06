@@ -18,24 +18,24 @@
                            placeholder="Auto number">
                 </div>
                 <div>
-                    <p>Đơn giá</p>
+                    <label for="don_gia">Đơn giá</label>
                     <input class="border w-full rounded-[4px] px-3 h-[40px]"
-                           type="number"  name="don_gia"
+                           type="number"  name="don_gia" id ="don_gia"
                            placeholder="Vui lòng nhập giá sản phẩm..">
                     <?php echo isset($error['empty_pro_price'])?$error['empty_pro_price']:" "?>
                 </div>
 
                 <div>
-                    <p>Tên sản phẩm</p>
+                    <label for="ten_san_pham">Tên sản phẩm</label>
                     <input class="border w-full rounded-[4px] px-3 h-[40px]"
-                           type="text" name="ten_san_pham"
+                           type="text" name="ten_san_pham" id="ten_san_pham"
                            placeholder="Vui lòng nhập tên sản phẩm..">
                     <?php echo isset($error['empty_pro_name'])?$error['empty_pro_name'] : " " ?>
                 </div>
                 <div>
-                    <p>Giảm giá</p>
+                    <label for="giam_gia">Giảm giá</label>
                     <input class="border w-full rounded-[4px] px-3 h-[40px]"
-                           type="number"  name="giam_gia"
+                           type="number"  name="giam_gia" id="giam_gia"
                            placeholder="Vui lòng nhập giảm giá..">
                 </div>
                 <div>
@@ -45,8 +45,8 @@
                     >
                 </div>
                 <div>
-                    <p>Tên danh mục</p>
-                    <select name="category" id="" class="w-full px-3 border rounded-[4px] h-[40px]">
+                    <label for="category">Tên danh mục</label>
+                    <select name="category" id="category" class="w-full px-3 border rounded-[4px] h-[40px]">
                         <option value="">--Chọn--</option>
                         <?php foreach ($list_cate as $cate) {?>
                             <option class="" value="<?php echo $cate['cate_id']?>"><?php echo $cate['cate_name']?></option>
@@ -57,9 +57,9 @@
                 </div>
             </div>
             <div>
-                <p>Mô tả</p>
+                <label for="mo_ta">Mô tả</label>
                 <textarea class="border w-full rounded-[4px] h-[100px] px-3 py-1 leading-[20px]"
-                          name="mo_ta" id="" cols="30" rows="4"
+                          name="mo_ta" id="mo_ta" cols="30" rows="4"
                           placeholder="Mô tả sản phẩm..."
                           ></textarea>
             </div>

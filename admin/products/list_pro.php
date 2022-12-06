@@ -20,17 +20,17 @@
                class="border px-2 py-1 hover:bg-[#FFEEEE] hover:text-[#F54748]" type="submit" value="Tìm kiếm">
     </form>
     <table class="border w-full mt-4">
-        <tr class="bg-[#D9D9D9] py-2 border text-[17px]" >
+        <tr class="bg-[#FFC0CB] py-2 border text-[17px] text-red-600" >
             <td class="w-[40px]"></td>
             <td class="w-[60px] text-center">Mã SP</td>
             <td class="text-center">Tên Sản Phẩm</td>
             <td class="text-center w-[240px]">Hình Ảnh</td>
-            <td class="text-center">Đơn Giá</td>
+            <td class="text-center w-[110px]">Đơn Giá</td>
             <!-- <td class="text-center">Giảm Giá</td> -->
             <!-- <td class="text-center w-[110px]">Ngày Tạo</td> -->
-            <td class="text-center w-[200px]">Mô Tả</td>
+            <td class="text-center w-[270px]">Mô Tả</td>
 
-            <td class="text-center">Thao Tác</td>
+            <td class="text-center w-[100px]">Thao Tác</td>
         </tr>
         <?php
         foreach ($list_pro as $pro){
@@ -44,7 +44,7 @@
                 <!-- <td class="text-center"><?php echo $pro['giam_gia']." VNĐ" ?></td> -->
                 <!-- <td class="text-center"><?php echo $pro['ngay_nhap']?></td> -->
                 <td class="pl-[10px]"><?php echo $pro['pro_desc']?></td>
-                <td class="text-center leading-8">
+                <td class="text-center leading-9">
                     <a href="index_admin.php?act=edit_pro&pro_id=<?php echo $pro['pro_id']?>">Sửa</a>
                     <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
                         href="index_admin.php?act=delete_pro&pro_id=<?php echo $pro['pro_id']?>">Xóa</a>
@@ -82,16 +82,13 @@
         table{
             border-collapse: collapse;
         }
-        /* .show>td{
-            padding-left: 20px;
-        } */
         tr>td{
             padding: 7px 0;
             border: 1px solid gray;
         }
         .show a{
-            padding: 2px 5px;
-            /* margin-right: 5px; */
+            padding: 5px 10px;
+            font-weight: 500;
             background-color: #FFC0CB;
             border: 1px solid darkgray;
             border-radius: 4px;
