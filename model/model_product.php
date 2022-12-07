@@ -54,8 +54,8 @@
     }
 // Lấy tên danh mục theo id
     function query_cate_name($cate_id){
-        if($cate_id > 0){
-            $sql = "SELECT * FROM `categories`  WHERE cate_id = '{$cate_id}'";
+        if(isset($cate_id) && ($cate_id > 0)){
+            $sql = "SELECT * FROM `categories` WHERE cate_id = '{$cate_id}'";
             $cate_name = getOne($sql);
             return $cate_name;
         } else{
