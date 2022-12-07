@@ -16,7 +16,6 @@
         $list_pro = getAll($query_pro);
         return $list_pro;
     }
-
     function queryOnePro($pro_id){
         $query_one_pro = "SELECT * FROM products WHERE pro_id = '{$pro_id}'";
         $one_pro = getOne($query_one_pro);
@@ -53,4 +52,14 @@
         $similar_pro = getAll($sql);
         return $similar_pro;
     }
+// Lấy tên danh mục theo id
+    function query_cate_name($cate_id){
+        if($cate_id > 0){
+            $sql = "SELECT * FROM `categories`  WHERE cate_id = '{$cate_id}'";
+            $cate_name = getOne($sql);
+            return $cate_name;
+        } else{
+            return "";
+        }
+    }    
 ?>
