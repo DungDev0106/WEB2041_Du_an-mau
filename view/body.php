@@ -64,7 +64,7 @@
 <section class="content w-11/12 grid grid-cols-[75%25%] mt-8 mx-auto  ">
     <div class="grid grid-cols-3 gap-x-4  ">
         <?php foreach($new_pro as $pro){?>
-        <div class="content-item text-center   space-y-3">
+        <div class="content-item text-center space-y-2">
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
                 <img class="w-full bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
             </a>
@@ -88,7 +88,7 @@
         
     </div> <!-- End grid-->
     <aside class="">
-        <div class="form w-full">
+        <div class="form_register w-full">
             <p class="px-2 text-center text-xl font-sans font-semibold text-[#F54748] border-b">TÀI KHOẢN</p>
             <form action="" class="w-full mt-2"autocomplete="off">
                 <label for="username">Tên Đăng Nhập</label>
@@ -108,7 +108,7 @@
                     <li><a href="" class="hover:text-[#F54748] hover:underline">Đăng kí tài khoản</a></li>
                 </ul>
             </form>
-        </div> <!-- End .form-->
+        </div> <!-- End .form_register-->
         <hr>
         <div class="category w-full mt-5">
             <p class="p-2 text-center text-xl font-sans font-semibold text-[#F54748] border-b">
@@ -118,7 +118,7 @@
                 <?php foreach($list_cate as $cate){
                 ?>
                     <li class="">
-                        <a class="block border-b p-2 text-lg hover:bg-[#FFEEEE] hover:text-[#F54748]" href="index.php?act=cate&cate_id=<?php echo $cate['cate_id']?>">
+                        <a class="block border-b p-2 text-lg hover:bg-[#FFEEEE] hover:text-[#F54748]" href="index.php?act=list_product&cate_id=<?php echo $cate['cate_id']?>">
                             <?php echo $cate['cate_name']?>
                         </a>
                     </li>
@@ -133,14 +133,15 @@
                     <a class="block border-b p-2 text-lg hover:bg-[#FFEEEE] hover:text-[#F54748]" href="">Túi Đeo Chéo </a>
                 </li> -->
             </ul> <!-- End .category_list-->
-            <div class="form_cate mt-2 p-2 bg-[#FFEEEE]">
-                <form action="" method="get" class="flex space-x-2">
+            <div class="search-cate mt-2 p-2 bg-[#FFEEEE]">
+                <form action="index.php?act=list_product" method="POST" class="flex space-x-2">
                     <input class="border w-full px-2 py-1 "
-                            type="text" placeholder="Tìm kiếm tên danh mục" >
+                            type="text" name="cate_name"
+                            placeholder="Tìm kiếm tên danh mục" >
                     <input class="border px-2 py-1 text-[#F54748] bg-[#FFFFFF] hover:bg-[#FFC0CB]"
-                            type="submit" value="Tìm kiếm">
+                            type="submit" name="search_cate_name" value="Tìm kiếm">
                 </form> 
-            </div> <!-- End .form_cate -->
+            </div> <!-- End .search_cate -->
         </div> <!-- End .category-->
         <div class="top_love w-full mt-5"> <!-- Top 10 yêu thích -->
             <p class="p-2 text-center text-xl font-sans font-semibold text-[#F54748]">TOP 10 YÊU THÍCH </p>
@@ -173,14 +174,14 @@
                     <a class="block w-full border-red-400 p-2 text-lg hover:underline hover:text-[#F54748]" href="">Thắt Lưng Da </a>
                 </li> -->
             </ul> <!-- End .product_list-->
-            <div class="form_pro mt-2 p-2 bg-[#FFEEEE]">
+            <div class="search_pro mt-2 p-2 bg-[#FFEEEE]">
                 <form action="" method="get" class="flex space-x-2">
                     <input class="border w-full px-2 py-1"
                             type="text" placeholder="Tìm kiếm top yêu thích" >
                     <input class="border px-2 py-1 text-[#F54748] bg-[#FFFFFF] hover:bg-[#FFC0CB]"
                             type="submit" value="Tìm kiếm">
                 </form>
-            </div> <!-- End .form_pro -->
+            </div> <!-- End .search_pro -->
         </div> <!-- End .top_love-->
     </aside>
 </section> <!-- End .content-->
