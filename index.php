@@ -14,21 +14,21 @@
                 include "view/information.php";
                 break; 
             case 'list_product':
-                if(isset($_POST['cate_name']) && (!empty($_POST['cate_name']))){
-                    $name_cate = $_POST['cate_name'];
+                if(isset($_POST['cate_name']) && ($_POST['cate_name'] != "")){
+                    $name_cate = $_POST['cate_name']; // lấy tên ở ô tìm kiếm
                     
                 } else{
-                    $name_cate = " ";
+                    $name_cate = "";
                 }
 
                 if(isset($_GET['cate_id']) && ($_GET['cate_id'] > 0)){
                     $cate_id = $_GET['cate_id'];
-                    
+                    $cate_name = query_cate_name($cate_id); // Lấy tên danh mục sản phẩm theo id
                 } else{
                     $cate_id = 0;
                 }
+                
                 $list_cate = queryAll();// Lấy tất cả danh mục
-                $cate_name = query_cate_name($cate_id); // Lấy tên danh mục sản phẩm theo id
                 $list_product = queryAllPro($name_cate, $cate_id); // Lấy sản phẩm theo danh mục
                 include "view/list_product.php";
                 break;    
