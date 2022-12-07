@@ -1,26 +1,37 @@
 <?php
     // show_array($list_product);
     // show_array($list_cate);
-    if(isset($_POST['search_cate_name'])){
-        echo "tim sp:".$name_cate;
-    }
-    show_array($cate_name);
-    echo "Số sp: ".count($list_product);
-    if(isset($_POST['search_cate_name'])){
-        echo  "<br>tên sp cần tìm".$name_cate;
-    }
-    
-    
+    // show_array($cate_name);    
 ?>
 <!-- 
     echo ($cate['cate_id'] == $_GET['cate_id']) ? $cate['cate_name'] : ""
  -->
 <div class="container max-w-full">
-    <div class="w-5/6 mt-10 mx-auto text-xl">
-        <a href="index.php">TRANG CHỦ</a>
-        <span class="uppercase font-[500] "> / <?php echo $cate_name['cate_name']?></span>
+    <div class="w-5/6 mt-10 mx-auto text-xl flex justify-between items-center">
+        <div>
+            <a href="index.php">TRANG CHỦ</a>
+            <span class="uppercase font-[500] "> / 
+                <?php 
+                if(isset($cate_name['cate_id'])){
+                    foreach($list_cate as $all_cate){
+                        if(isset($cate_name['cate_id']) && ($all_cate['cate_id'] == $cate_name['cate_id'])){
+                            echo $cate_name['cate_name'] ;
+                        } 
+                    }
+                }else if(isset($_POST['search_cate_name']) && !empty($_POST['cate_name'])){
+                    echo "<span class='text-gray-700'>Kết quả tìm kiếm cho </span>\"".$name_cate."\"";
+                } else{
+                    "Không tìm thấy sản phẩm cho ".$name_cate;
+                }
+                ?>
+            </span>
+        </div>
+        <div>
+            <span class="text-gray-800">Showing all <?php echo count($list_product)?> results</span>
+        </div>
     </div>
     <a href="index.php"></a>
+    
     <div class="content w-5/6 mt-10 mx-auto grid grid-cols-5">  
         <?php foreach($list_product as $pro){
         ?>

@@ -135,9 +135,9 @@
             </ul> <!-- End .category_list-->
             <div class="search-cate mt-2 p-2 bg-[#FFEEEE]">
                 <form action="index.php?act=list_product" method="POST" class="flex space-x-2">
-                    <input class="border w-full px-2 py-1 "
-                            type="text" name="cate_name"
-                            placeholder="Tìm kiếm tên danh mục" >
+                    <input class="border w-full px-2 py-1 " title="Tìm kiếm sản phẩm, danh mục"
+                            type="text" name="cate_name" 
+                            placeholder="Tìm kiếm sản phẩm, danh mục" >
                     <input class="border px-2 py-1 text-[#F54748] bg-[#FFFFFF] hover:bg-[#FFC0CB]"
                             type="submit" name="search_cate_name" value="Tìm kiếm">
                 </form> 
@@ -176,8 +176,9 @@
             </ul> <!-- End .product_list-->
             <div class="search_pro mt-2 p-2 bg-[#FFEEEE]">
                 <form action="" method="get" class="flex space-x-2">
-                    <input class="border w-full px-2 py-1"
-                            type="text" placeholder="Tìm kiếm top yêu thích" >
+                    <input class="border w-full px-2 py-1" title="Tìm kiếm sản phẩm yêu thích"
+                            type="text" name=""
+                            placeholder="Tìm kiếm top yêu thích" >
                     <input class="border px-2 py-1 text-[#F54748] bg-[#FFFFFF] hover:bg-[#FFC0CB]"
                             type="submit" value="Tìm kiếm">
                 </form>

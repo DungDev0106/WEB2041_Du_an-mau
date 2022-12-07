@@ -20,7 +20,7 @@
 
 <body onload="loadAnh()">
 
-    <div class="container max-w-full mx-auto">
+    <div class="container max-w-full mx-auto mb-[100px]">
         <header class="w-full mx-auto pb-3 bg-[#FFC0CB]">
             <div class="flex justify-between items-center ">
                 <div class="logo w-[150px] ml-5">

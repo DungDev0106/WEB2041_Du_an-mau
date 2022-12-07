@@ -27,6 +27,9 @@
 
             </div>
         </div> <!-- End . content -->
+        <div class="comment w-5/6 mt-10 mx-auto">
+            <p class="text-[22px] font-[500] text-gray-700 border pl-3 rounded-md py-2 bg-[#FFC0CB]">Bình luận</p>
+        </div>
         <div class="similar_pro w-5/6 mt-10 mx-auto">
             <p class="text-[22px] font-bold text-gray-700 mb-5">SẢN PHẨM TƯƠNG TỰ</p>
             <div class="grid grid-cols-5 gap-4">
