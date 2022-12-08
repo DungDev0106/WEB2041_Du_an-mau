@@ -3,13 +3,13 @@
 ?>
 
 <section class="product w-full mt-5 leading-8">
-    <p class="p-3 text-[28px] border bg-[#EEE] rounded-md">
+    <p class="p-3 text-[28px] border bg-[#EEE] rounded-md mb-5">
                     CẬP NHẬT SẢN PHẨM
                 </p>
         <form action="index_admin.php?act=update_pro" method="post" enctype="multipart/form-data">
             <div class="grid grid-cols-2 gap-x-8 gap-y-2">
                 <div class="">
-                    <p>Mã sản phẩm</p>
+                    <label>Mã sản phẩm</label>
                     <input class="border w-full rounded-[4px] px-3 h-[40px]"
                            type="text" disabled name="ma_san_pham" id="ma_san_pham"
                            placeholder="Auto number" value="<?php echo $one_pro['pro_id']?>">
