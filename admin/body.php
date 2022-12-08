@@ -12,11 +12,7 @@
                            type="text" name="ten_loai" required
                            title="Tên loại hàng"
                            placeholder="Tên loại hàng..">
-                    <!-- <?php
-                        if(isset($_COOKIE['success'])){
-                            echo $_COOKIE['success'];
-                        }
-                    ?> -->
+                    
                     <input class=" border px-3 py-1  mt-3 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
                            type="submit" value="Lưu lại" name="luu_lai">
                     <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
