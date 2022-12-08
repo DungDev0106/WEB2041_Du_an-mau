@@ -10,9 +10,9 @@
     <table class="border w-full mx-auto ">
         <tr class="bg-[#FFC0CB] py-2 border text-center text-red-600" >
             <td class="w-[55px] "></td>
-            <td title="Mã loại hàng" class="w-[140px] text-center">Mã Loại Hàng</td>
-            <td title="Tên loại hàng" class="text-center">Tên Loại Hàng</td>
-            <td title="Hành động" class="text-center w-[120px]">Thao Tác</td>
+            <td title="Mã loại hàng" class="w-[140px]">Mã Loại Hàng</td>
+            <td title="Tên loại hàng" class="">Tên Loại Hàng</td>
+            <td title="Hành động" class="w-[120px]">Thao Tác</td>
         </tr>
         <?php
             foreach ($list_cate as $cate){
@@ -35,8 +35,10 @@
         <input type="button" value="Chọn tất cả">
         <input type="button" value="Bỏ chọn tất cả">
         <input type="button" value="Xóa các mục đã chọn">
-        <input type="button" onclick="location.href='index_admin.php?act=add_cate'" value="Thêm mới loại hàng">
+        <input type="button" onclick="location.href='index_admin.php?act=add_cate'" value="Thêm mới danh mục">
         <input type="button" onclick="location.href='index_admin.php?act=add_pro'" value="Thêm mới sản phẩm">
+        <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                       type="button" onclick="location.href='index_admin.php?act=list_pro'" value="Danh sách sản phẩm ">
     </div> <!-- End .action -->
 </div> <!-- End .list_cate-->
 <!DOCTYPE html>
@@ -80,6 +82,7 @@
         }
         .action>input:hover{
             color: rgb(239 68 68);
+            font-weight:500;
         }
     </style>
 </head>        
