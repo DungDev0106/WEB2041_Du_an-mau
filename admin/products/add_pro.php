@@ -3,7 +3,7 @@
 ?>
 
 <section class="product w-full mt-5 leading-8">
-    <p class="p-3 text-[28px] border bg-[#EEE] rounded-md">
+    <p class="p-3 mb-5 text-[28px] border bg-[#EEE] rounded-md">
         THÊM MỚI SẢN PHẨM
     </p>
     <?php
@@ -12,7 +12,7 @@
         <form action="index_admin.php?act=add_pro" method="post" enctype="multipart/form-data">
             <div class="grid grid-cols-2 gap-x-8 gap-y-2">
                 <div class="">
-                    <p>Mã sản phẩm</p>
+                    <label>Mã sản phẩm</label>
                     <input class="border w-full rounded-[4px] px-3 h-[40px]"
                            type="text" disabled name="ma_san_pham"
                            placeholder="Auto number">
@@ -39,7 +39,7 @@
                            placeholder="Vui lòng nhập giảm giá..">
                 </div>
                 <div>
-                    <p>Hình ảnh</p>
+                    <p class="text-[19px]">Hình ảnh</p>
                     <input class="border w-full rounded-[4px] px-3  h-[40px]"
                            type="file" name="hinh_anh"
                     >
@@ -69,18 +69,16 @@
                           placeholder="Mô tả sản phẩm..."
                           ></textarea>
             </div>
-            <input class=" border px-3 py-1  mt-3 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
-                   type="submit" value="Lưu lại" name="add_pro">
-            <input class=" border px-3 py-1 mt-3 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
-                   type="submit" value="Nhập lại" name="nhap_lai">
-            <a href="index_admin.php?act=list_pro"
-               class=" border px-3 py-[10.5px] mt-3 rounded-[4px] bg-[#FFC0CB] hover:font-[500]">
-                Danh Sách Sản Phẩm
-            </a>
-            <a href="index_admin.php?act=add_cate";
-               class=" border px-3 py-[10.5px] ml-1 mt-3 rounded-[4px] bg-[#FFC0CB] hover:font-[500]">
-                Thêm mới danh mục
-            </a>
+            <div class="button text-[19px] mt-3">
+                <input class="border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                    type="submit" value="Lưu lại" name="add_pro">
+                <input class="border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                    type="submit" value="Nhập lại" name="nhap_lai">
+                <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                        type="button" onclick="location.href='index_admin.php?act=list_pro'" value="Danh sách sản phẩm ">
+                <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                        type="button" onclick="location.href='index_admin.php?act=add_cate'" value="Thêm mới danh mục">
+            </div>
         </form>
 
 </section>
