@@ -1,5 +1,6 @@
 <?php
     // show_array($list_pro);
+    // show_array($list_cate);
 ?>
 
 <div class="view">
@@ -20,17 +21,18 @@
                class="border px-2 py-1 hover:bg-[#FFEEEE] hover:text-[#F54748]" type="submit" value="Tìm kiếm">
     </form>
     <table class="border w-full mt-4">
-        <tr class="bg-[#FFC0CB] py-2 border text-[17px] text-red-600" >
+        <tr class="title bg-[#FFC0CB] py-2 border text-[17px] text-red-600 text-center" >
             <td class="w-[40px]"></td>
-            <td class="w-[60px] text-center">Mã SP</td>
-            <td class="text-center">Tên Sản Phẩm</td>
-            <td class="text-center w-[240px]">Hình Ảnh</td>
-            <td class="text-center w-[110px]">Đơn Giá</td>
+            <td class="w-[60px] ">Mã SP</td>
+            <td class="w-[200px]">Tên Sản Phẩm</td>
+            <td class="">Tên Danh Mục</td>
+            <td class="w-[240px]">Hình Ảnh</td>
+            <td class=" w-[100px]">Đơn Giá</td>
             <!-- <td class="text-center">Giảm Giá</td> -->
             <!-- <td class="text-center w-[110px]">Ngày Tạo</td> -->
-            <td class="text-center w-[270px]">Mô Tả</td>
+            <td class="w-[270px]">Mô Tả</td>
 
-            <td class="text-center w-[100px]">Thao Tác</td>
+            <td class="w-[100px]">Thao Tác</td>
         </tr>
         <?php
         foreach ($list_pro as $pro){
@@ -38,12 +40,18 @@
             <tr class="show hover:bg-[#FFEEEE]">
                 <td class="text-center"><input type="checkbox"></td>
                 <td class="text-center"><?php echo $pro['pro_id']?></td>
-                <td class="pl-[10px]"><?php echo $pro['pro_name']?></td>
-                <td class="pl-[5px]"><img class="w-[225px] h-[225px]" src="<?php echo $pro['pro_image']?>" alt=""></td>
+                <td class="px-2"><?php echo $pro['pro_name']?></td>
+                <td class="px-2">
+                    <?php foreach($list_cate as $cate){
+                        echo ($pro['cate_id'] == $cate['cate_id'])?$cate['cate_name'] : "";
+                    }?>
+                </td>
+                <td class=""><img class="w-11/12 mx-auto py-1" src="<?php echo $pro['pro_image']?>" alt=""></td>
+                
                 <td class="text-center"><?php echo $pro['pro_price']." VNĐ"?></td>
                 <!-- <td class="text-center"><?php echo $pro['giam_gia']." VNĐ" ?></td> -->
                 <!-- <td class="text-center"><?php echo $pro['ngay_nhap']?></td> -->
-                <td class="pl-[10px]"><?php echo $pro['pro_desc']?></td>
+                <td class="px-2"><?php echo $pro['pro_desc']?></td>
                 <td class="text-center leading-9">
                     <a href="index_admin.php?act=edit_pro&pro_id=<?php echo $pro['pro_id']?>">Sửa</a>
                     <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
@@ -58,7 +66,10 @@
         <input type="button" value="Chọn tất cả">
         <input type="button" value="Bỏ chọn tất cả">
         <input type="button" value="Xóa các mục đã chọn">
+        <input type="button" onclick="location.href='index_admin.php?act=add_cate'" value="Thêm mới danh mục">
         <input type="button" onclick="location.href='index_admin.php?act=add_pro'" value="Thêm mới sản phẩm">
+        <input class="border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                       type="button" onclick="location.href='index_admin.php?act=list_cate'" value="Danh sách danh mục">
     </div>
 </div>
 
@@ -82,8 +93,11 @@
         table{
             border-collapse: collapse;
         }
-        tr>td{
+        .title td{
             padding: 7px 0;
+            border: 1px solid gray;
+        }
+        tr>td{
             border: 1px solid gray;
         }
         .show a{
@@ -103,6 +117,7 @@
         }
         .action>input:hover{
             color: rgb(239 68 68);
+            font-weight: 500;
         }
     </style>
 </head>        
