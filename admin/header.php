@@ -13,15 +13,16 @@
     <style>
         body{
             font-family: 'Roboto', sans-serif;
-
+        }
+        label{
+            font-size:20px;
         }
     </style>
 </head>
 <body>  
     <div class="container max-w-full mx-auto py-4">
-        <div class="main w-4/5 mx-auto">
+        <div class="main w-11/12 mx-auto">
             <p class="p-4 text-5xl text-[#F54748] bg-[#FFC0CB] rounded-md">QUẢN TRỊ WEBSITE</p>
-
             <div class="menu my-6 py-2 text-red-800 bg-[#FFC0CB] rounded-md">
                 <nav>
                     <ul class="pl-4 flex items-center space-x-10 text-xl ">
