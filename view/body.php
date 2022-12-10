@@ -105,7 +105,7 @@
                 </div> <!-- End .btn_sign_in-->
                 <ul class=" mt-2 space-y-1">
                     <li><a href="" class="hover:text-[#F54748] hover:underline">Quên mật khẩu?</a></li>
-                    <li><a href="" class="hover:text-[#F54748] hover:underline">Đăng kí tài khoản</a></li>
+                    <li><a href="index.php?act=signup" class="hover:text-[#F54748] hover:underline">Đăng kí tài khoản</a></li>
                 </ul>
             </form>
         </div> <!-- End .form_register-->
