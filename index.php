@@ -3,6 +3,8 @@
     include "model/model_category.php";
     include "model/model_product.php";
     include "view/header.php";
+    include "model/model_user.php";
+    
 
     $new_pro = query_pro_home();
     $list_cate = queryAll();
@@ -43,6 +45,26 @@
                     include "view/body.php";
                 }
                 break;
+            // case 'signin':
+            //     if(isset($_POST['sign_in'])){
+            //         $email = $_POST['email'];
+            //         $password = $_POST['password'];
+            //         add_user($email, $password);
+            //         $thong_bao = "<span class='text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
+            //     }
+            //     include "view/account/signin.php";
+            //     break;    
+            case 'signup':
+                if(isset($_POST['sign_up'])){
+                    $email = $_POST['email'];
+                    $fullName = $_POST['fullName'];
+                    $password = $_POST['password'];
+                    $repass = $_POST['repass'];
+                    add_user($email, $fullName, $password, $repass);
+                    $thong_bao = "<span class='mt-2 text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
+                }
+                include "view/account/signup.php"    ;
+                break;  
             case 'introduction':
                 include "view/introduction.php";
                 break;
