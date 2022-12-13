@@ -58,7 +58,7 @@
                 <div>
                     <label for="chat_lieu">Chất liệu</label>
                     <input class="border w-full rounded-[4px] px-3 h-[40px]"
-                           type="text" name="chat_lieu" id="chat_lieu"
+                           type="text" name="chat_lieu" id="chat_lieu" value="<?php echo $one_pro['chat_lieu']?>"
                            placeholder="Chất liệu sản phẩm">
                 </div>
             </div>
