@@ -8,31 +8,38 @@
         DANH SÁCH SẢN PHẨM
     </p>
 <!-- Form tìm kiếm sản phẩm theo tên hoặc danh mục  -->
-    <form action="index_admin.php?act=list_pro" method="post" class="mt-3 flex items-center space-x-3">
+    <form action="index_admin.php?act=list_pro" method="post" class="mt-3 flex justify-between items-center space-x-3 mb-2">
         <input class="border w-[300px] py-1 px-2" placeholder="Tìm kiếm sản phẩm"
-               type="text" name="key_word" >
-        <select name="cate_id" id="" class="border py-[6px]">
-            <option value="0">--Tất cả--</option>
-            <?php foreach($list_cate as $cate){?>
-                <option value="<?php echo $cate['cate_id']?>"><?php echo $cate['cate_name']?></option>
-            <?php }?>
-        </select>
-        <input name="search_by_cate"
-               class="border px-2 py-1 hover:bg-[#FFEEEE] hover:text-[#F54748]" type="submit" value="Tìm kiếm">
+               type="text" name="key_word" value="<?php echo (isset($key_word) && !empty($key_word)) ? $key_word : "";?>" >
+        <div>
+            <!-- <p>Showing</p> -->
+            <span class="font-[500] text-gray-800">Showing all <?php echo count($list_pro)?> results</span>
+            <select name="cate_id" id="" class="border py-[6px]">
+                <option value="0">--Tất cả--</option>
+                <?php foreach($list_cate as $cate){?>
+                    <option value="<?php echo $cate['cate_id']?>"><?php echo $cate['cate_name']?></option>
+                <?php }?>
+            </select>
+            <input name="search_by_cate"
+                class="border px-2 py-1 hover:bg-[#FFEEEE] hover:text-[#F54748]" type="submit" value="Tìm kiếm">
+        </div>
+        
     </form>
-    <table class="border w-full mt-4">
+    <?php if(isset($key_word) && !empty($key_word)) echo "<span class='text-[19px]'>Kết quả tìm kiếm cho : </span>\""."<span class='text-xl font-[500]'>".$key_word."</span>"."\"";?>
+    <table class="border w-full border mt-2">
         <tr class="title bg-[#FFC0CB] py-2 border text-[17px] text-red-600 text-center" >
-            <td class="w-[40px]"></td>
-            <td class="w-[60px] ">Mã SP</td>
-            <td class="w-[200px]">Tên Sản Phẩm</td>
-            <td class="">Tên Danh Mục</td>
-            <td class="w-[240px]">Hình Ảnh</td>
-            <td class=" w-[100px]">Đơn Giá</td>
+            <td class="w-[3%]"></td>
+            <td class="w-[5%] ">Mã SP</td>
+            <td class="w-[10%]">Tên Sản Phẩm</td>
+            <td class="w-[15%]">Tên Danh Mục</td>
+            <td class="w-[22%]">Hình Ảnh</td>
+            <td class="w-[8%]">Đơn Giá</td>
             <!-- <td class="text-center">Giảm Giá</td> -->
             <!-- <td class="text-center w-[110px]">Ngày Tạo</td> -->
-            <td class="w-[270px]">Mô Tả</td>
+            <td class="w-[10%]">Chất liệu</td>   
+            <td class="w-[21%]">Mô Tả</td>
 
-            <td class="w-[100px]">Thao Tác</td>
+            <td class="w-[6%]">Thao Tác</td>
         </tr>
         <?php
         foreach ($list_pro as $pro){
@@ -48,9 +55,9 @@
                 </td>
                 <td class=""><img class="w-11/12 mx-auto py-1" src="<?php echo $pro['pro_image']?>" alt=""></td>
                 
-                <td class="text-center"><?php echo $pro['pro_price']." VNĐ"?></td>
+                <td class="text-center"><?php echo $pro['pro_price']." <span class='font-[500]'>VNĐ</span>"?></td>
                 <!-- <td class="text-center"><?php echo $pro['giam_gia']." VNĐ" ?></td> -->
-                <!-- <td class="text-center"><?php echo $pro['ngay_nhap']?></td> -->
+                <td class="px-2"><?php echo $pro['chat_lieu']?></td>
                 <td class="px-2"><?php echo $pro['pro_desc']?></td>
                 <td class="text-center leading-9">
                     <a href="index_admin.php?act=edit_pro&pro_id=<?php echo $pro['pro_id']?>">Sửa</a>
