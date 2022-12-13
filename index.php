@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    session_destroy();
     include "model/connect.php";
     include "model/model_category.php";
     include "model/model_product.php";
@@ -45,15 +47,7 @@
                     include "view/body.php";
                 }
                 break;
-            // case 'signin':
-            //     if(isset($_POST['sign_in'])){
-            //         $email = $_POST['email'];
-            //         $password = $_POST['password'];
-            //         add_user($email, $password);
-            //         $thong_bao = "<span class='text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
-            //     }
-            //     include "view/account/signin.php";
-            //     break;    
+            
             case 'signup':
                 if(isset($_POST['sign_up'])){
                     $email = $_POST['email'];
@@ -61,10 +55,44 @@
                     $password = $_POST['password'];
                     $repass = $_POST['repass'];
                     add_user($email, $fullName, $password, $repass);
-                    $thong_bao = "<span class='mt-2 text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
+                    // $list_user = queryAllUser();
+                    $thong_bao = "<span class='mt-3 text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
+                    header("location:index.php");
+
                 }
-                include "view/account/signup.php"    ;
+                include "view/account/signup.php";
                 break;  
+            case 'signin':
+                if(isset($_POST['sign_in'])){
+                    $fullName = $_POST['username'];
+                    $password = $_POST['password'];
+                    $one_user = queryOneUser($fullName, $password);
+                    if(is_array($one_user)){
+                        $_SESSION['user'] = $one_user;
+                        header("Location:index.php");
+                        // $thong_bao = "<span class='text-red-500'>Đăng nhập thành công</span>";
+                        // $_SESSION['thong_bao'] = "<span class='text-red-500'>Đăng nhập thành công</span>";
+                    } else{
+                        $thong_bao = "<span class='text-red-500'>Tài khoản không tồn tại. Vui lòng kiểm tra lại hoặc đăng kí</span>";
+                    }
+                    
+                }
+                include "view/account/signin.php";
+                break;    
+            case 'edit_acc':
+                if(isset($_POST['edit_acc'])){
+                    $email = $_POST['email'];
+                    $fullName = $_POST['fullName'];
+                    $password = $_POST['password'];
+                    $repass = $_POST['repass'];
+                    $user_id = $_POST['user_id'];
+
+                    edit_user($user_id, $email, $fullName, $password, $repass);
+                    $_SESSION['user'] = queryOneUser($fullName, $password);
+                    header("Location:index.php?act=edit_acc");
+                }
+                include "view/account/edit_acc.php";
+                break;
             case 'introduction':
                 include "view/introduction.php";
                 break;
