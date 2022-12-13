@@ -10,7 +10,7 @@
             $query_pro.= " AND pro_name like '%{$key_word}%'";
         }
         if($cate_id > 0){
-            $query_pro.= " AND cate_id = '{$cate_id}'";
+            $query_pro.= " AND cate_id = '{$cate_id}' ";
         }
         $query_pro.= " ORDER BY pro_id";
         $list_pro = getAll($query_pro);
@@ -23,10 +23,10 @@
     }
 // Cập nhật sản phẩm 
     function update_pro($pro_id, $pro_name, $pro_price, $target_file, $pro_desc, $chat_lieu, $cate_id){
-        if(empty($target_file)){
-            $update_pro = "UPDATE `products` SET pro_name='{$pro_name}', pro_price='{$pro_price}', pro_image = '{$target_file}, pro_desc = '{$pro_desc}', chat_lieu = '{$chat_lieu}' cate_id = '{$cate_id}' WHERE pro_id = '{$pro_id}'";
-        } else{
+        if($target_file == "../upload/"){
             $update_pro = "UPDATE `products` SET pro_name='{$pro_name}', pro_price='{$pro_price}', pro_desc = '{$pro_desc}', chat_lieu = '{$chat_lieu}', cate_id = '{$cate_id}' WHERE pro_id = '{$pro_id}'";
+        } else{
+            $update_pro = "UPDATE `products` SET pro_name='{$pro_name}', pro_price='{$pro_price}', pro_image = '{$target_file}', pro_desc = '{$pro_desc}', chat_lieu = '{$chat_lieu}', cate_id = '{$cate_id}' WHERE pro_id = '{$pro_id}'";
         }
         connect($update_pro);
     }
