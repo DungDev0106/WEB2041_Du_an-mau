@@ -3,6 +3,8 @@
     // echo $new_pro[0]['pro_image'];
     // show_array($list_cate);
     // show_array($list_top_10);
+    
+    
 ?>
 
 <script>
@@ -43,6 +45,7 @@
     }
     
 </script>
+
 <div class="banner relative min-h-[700px] w-full mt-2">
             <button class="absolute top-1/2" onclick="prev();">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FFFFFF" class="hover:fill-[#000000] bi bi-arrow-left-circle " viewBox="0 0 16 16">
@@ -61,12 +64,12 @@
         <div class="p_shop w-5/6 mx-auto mt-5 text-center text-2xl font-semibold text-[#F54748] ">
             <span class="italic">GENCE - THỜI TRANG CÔNG SỞ</span>
         </div> <!-- End .p_shop-->
-<section class="content w-11/12 grid grid-cols-[75%25%] mt-8 mx-auto  ">
-    <div class="grid grid-cols-3 gap-x-4  ">
+<section class="content w-11/12 grid grid-cols-[75%25%] mt-8 mx-auto gap-2 ">
+    <div class="grid grid-cols-3 gap-x-4">
         <?php foreach($new_pro as $pro){?>
-        <div class="content-item text-center space-y-2">
+        <div class="content-item min-h-[480px] text-center space-y-2">
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
-                <img class="w-full bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
+                <img class="w-full h-[340px] bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
             </a>
             <span class="text-slate-400"><?php foreach($list_cate as $cate){
                 echo ($cate['cate_id'] == $pro['cate_id'] ? $cate['cate_name'] : ""); // Hiển thị category
@@ -90,24 +93,55 @@
     <aside class="">
         <div class="form_register w-full">
             <p class="px-2 text-center text-xl font-sans font-semibold text-[#F54748] border-b">TÀI KHOẢN</p>
-            <form action="" class="w-full mt-2"autocomplete="off">
+            <?php
+                if(isset($_SESSION['user'])){
+            ?>
+            <p class="my-2 text-center"> Xin Chào <mark class="font-semibold"><?php echo $_SESSION['user']['user_name']?></mark></p>
+
+            <ul>
+                <li>
+                    <a href="index.php?act=forget_pass" class="hover:text-[#F54748] hover:underline">Quên mật khẩu?</a>
+                </li>
+                <li>
+                    <a href="index.php?act=edit_acc" class="hover:text-[#F54748] hover:underline">Cài đặt tài khoản</a>
+                </li>
+                <li>
+                    <a href="" class="hover:text-[#F54748] hover:underline">Đăng nhập trang admin</a>
+                </li>
+                <li>
+                    <a href="" class="hover:text-[#F54748] hover:underline">Đăng xuất</a>
+                </li>
+            </ul>
+            
+            <?php                    
+                } else{
+            ?>
+            <form action="index.php?act=signin" method="post" class="w-full mt-2" autocomplete="off" enctype="multipart/form">
                 <label for="username">Tên Đăng Nhập</label>
-                <input class="border mt-1 mb-2 w-full px-2 py-1 text-[#4A5568] rounded-md" type="text" id="username" placeholder="Tên đăng nhập">
+                <input class="border mt-1 mb-2 w-full px-2 py-1 text-[#4A5568] rounded-md" 
+                       type="text" name="username" id="username" placeholder="Tên đăng nhập">
 
                 <label for="password">Mật Khẩu</label> 
-                <input class="border mt-1 w-full px-2 py-1 rounded-md" type="password" id="password" placeholder="Mật khẩu">
+                <input class="border mt-1 w-full px-2 py-1 rounded-md" 
+                       type="password" name="password" id="password" placeholder="Mật khẩu">
 
                 <input class="mt-4" type="checkbox" name="" id="save_user">
                 <label for="save_user">Ghi nhớ tài khoản?</label> <br>
+
                 <div class="btn_sign_in mx-auto mt-2 text-center">
                     <input type="submit" name="sign_in" value="Đăng Nhập"
-                        class="border px-3 py-2 rounded-md hover:bg-[#FFEEEE] hover:text-[#F54748]" >
+                           class="border px-3 py-2 rounded-md hover:bg-[#FFEEEE] hover:text-[#F54748]" >
                 </div> <!-- End .btn_sign_in-->
                 <ul class=" mt-2 space-y-1">
-                    <li><a href="" class="hover:text-[#F54748] hover:underline">Quên mật khẩu?</a></li>
-                    <li><a href="index.php?act=signup" class="hover:text-[#F54748] hover:underline">Đăng kí tài khoản</a></li>
+                    <li>
+                        <a href="" class="hover:text-[#F54748] hover:underline">Quên mật khẩu?</a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=signup" class="hover:text-[#F54748] hover:underline">Đăng kí tài khoản</a>
+                    </li>
                 </ul>
             </form>
+            <?php }?>
         </div> <!-- End .form_register-->
         <hr>
         <div class="category w-full mt-5">
@@ -118,7 +152,7 @@
                 <?php foreach($list_cate as $cate){
                 ?>
                     <li class="">
-                        <a class="block border-b p-2 text-lg hover:bg-[#FFEEEE] hover:text-[#F54748]" href="index.php?act=list_product&cate_id=<?php echo $cate['cate_id']?>">
+                        <a href="index.php?act=list_product&cate_id=<?php echo $cate['cate_id']?>" class="block border-b p-2 text-lg hover:bg-[#FFEEEE] hover:text-[#F54748]">
                             <?php echo $cate['cate_name']?>
                         </a>
                     </li>
@@ -148,12 +182,40 @@
             <ul class="product_list">
                 <?php foreach($list_top_10 as $pro){
                 ?>    
-                    <li class="flex items-center space-x-2">
-                        <img class="w-[50px] border rounded-md"
-                                src="<?php echo substr($pro['pro_image'], 3); ?>" alt="">
-                        <a class="block w-full border-red-400 p-2 text-lg hover:underline hover:text-[#F54748]" href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
-                            <?php echo $pro['pro_name']?>
-                        </a>
+                    <li class="flex justify-between items-center ">
+                        <!-- <div class="flex justify-between items-center space-x-2 border border-red-500">
+                            <img class="w-[50px] border rounded-md"
+                                    src="<?php echo substr($pro['pro_image'], 3); ?>" alt="">
+                            <a class="border-red-400 py-2 text-lg hover:underline hover:text-[#F54748]" href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
+                                <?php echo $pro['pro_name']?>
+                            </a>
+                        </div>
+                        <div class="flex justify-between items-center  border border-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                            </svg>
+                            <span class="text-gray-600"><?php echo $pro['pro_view']?></span>
+                        </div> -->
+                        <div class="grid grid-cols-[15%75%7%] items-center gap-x-1 py-1">
+                            
+                                <img class="border rounded-md "
+                                        src="<?php echo substr($pro['pro_image'], 3); ?>" alt="">
+                                <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>"
+                                   class=" text-lg hover:underline hover:text-[#F54748] ">
+                                   <?php echo $pro['pro_name']?>
+                                </a>
+                            
+                            
+                                <div class="flex flex-col text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="red" class="bi bi-eye mx-auto" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                    </svg>
+                                    <span class="text-slate-600"><?php echo $pro['pro_view']?></span>
+                                </div>
+                            
+                        </div>
                     </li>
                 <?php
                 }?>
