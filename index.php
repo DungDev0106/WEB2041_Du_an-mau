@@ -4,10 +4,10 @@
     include "model/connect.php";
     include "model/model_category.php";
     include "model/model_product.php";
-    include "view/header.php";
     include "model/model_user.php";
+    include "view/header.php";
     
-
+    
     $new_pro = query_pro_home();
     $list_cate = queryAll();
     $list_top_10 = query_pro_top10();
@@ -46,6 +46,7 @@
                 } else{
                     include "view/body.php";
                 }
+                $list_cate = queryAll();
                 break;
             
             case 'signup':
@@ -56,28 +57,28 @@
                     $repass = $_POST['repass'];
                     add_user($email, $fullName, $password, $repass);
                     // $list_user = queryAllUser();
-                    $thong_bao = "<span class='mt-3 text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
-                    header("location:index.php");
-
+                    // setcookie("thong_bao", "Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng", time() + 5);
+                    $thong_bao = "<span class='mt-3 font-[500] text-red-500'>Đăng kí tài khoản thành công. Vui lòng đăng nhập để mua hàng</span>";
+                    // header("location:index.php");
                 }
                 include "view/account/signup.php";
                 break;  
             case 'signin':
-                if(isset($_POST['sign_in'])){
+                if(isset($_POST['sign_in']) && ($_POST['sign_in'])){
                     $fullName = $_POST['username'];
                     $password = $_POST['password'];
                     $one_user = queryOneUser($fullName, $password);
                     if(is_array($one_user)){
                         $_SESSION['user'] = $one_user;
-                        header("Location:index.php");
+                        header("location:index.php");
                         // $thong_bao = "<span class='text-red-500'>Đăng nhập thành công</span>";
                         // $_SESSION['thong_bao'] = "<span class='text-red-500'>Đăng nhập thành công</span>";
                     } else{
-                        $thong_bao = "<span class='text-red-500'>Tài khoản không tồn tại. Vui lòng kiểm tra lại hoặc đăng kí</span>";
+                        $thong_bao = "<span class='font-[500] text-red-500'>Tài khoản không tồn tại. Vui lòng kiểm tra lại hoặc đăng kí</span>";
                     }
                     
                 }
-                include "view/account/signin.php";
+                include "view/account/signup.php";
                 break;    
             case 'edit_acc':
                 if(isset($_POST['edit_acc'])){
