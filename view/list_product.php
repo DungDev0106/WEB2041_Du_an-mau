@@ -9,7 +9,7 @@
 <div class="container max-w-full">
     <div class="w-5/6 mt-10 mx-auto text-xl flex justify-between items-center">
         <div>
-            <a href="index.php">TRANG CHỦ</a>
+            <a href="index.php" class="text-gray-500 hover:text-black">TRANG CHỦ</a>
             <span class="uppercase font-[500] "> / 
                 <?php 
                 if(isset($cate_name['cate_id'])){
@@ -32,12 +32,12 @@
     </div>
     <a href="index.php"></a>
     
-    <div class="content w-5/6 mt-10 mx-auto grid grid-cols-5">  
+    <div class="content w-5/6 mt-10 mx-auto grid grid-cols-5 gap-2 ">  
         <?php foreach($list_product as $pro){
         ?>
-            <div class="content-item text-center space-y-2">
+            <div class="content-item min-h-[380px] text-center space-y-2 ">
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
-                <img class="w-full bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
+                <img class="w-full h-[240px]  bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
             </a>
             <span class="text-slate-400"><?php foreach($list_cate as $cate){
                 echo ($cate['cate_id'] == $pro['cate_id'] ? $cate['cate_name'] : ""); // Hiển thị category
