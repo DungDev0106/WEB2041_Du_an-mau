@@ -5,7 +5,7 @@
 <p class="p-3 text-[28px] border bg-[#EEE] rounded-md">
                 QUẢN LÝ LOẠI HÀNG
 </p>
-<?php if(isset($thong_bao)) echo $thong_bao?>
+<?php if(isset($thong_bao)) echo "<p class='text-red-500'>".$thong_bao."</p>"?>
 <div class="list_cate mt-6 w-full">
     <table class="border w-full mx-auto ">
         <tr class="bg-[#FFC0CB] py-2 border text-center text-red-600" >
