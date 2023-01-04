@@ -77,6 +77,8 @@
                 <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
                         type="button" onclick="location.href='index_admin.php?act=list_pro'" value="Danh sách sản phẩm ">
                 <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
+                        type="button" onclick="location.href='index_admin.php?act=list_cate'" value="Danh sách danh mục">
+                <input class=" border px-3 py-1 rounded-[4px] bg-[#FFC0CB] hover:font-[500]"
                         type="button" onclick="location.href='index_admin.php?act=add_cate'" value="Thêm mới danh mục">
             </div>
         </form>
