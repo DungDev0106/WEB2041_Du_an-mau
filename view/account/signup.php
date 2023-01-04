@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,7 @@
             </div>
         </div>
         <div class="mt-8 sm:text-xl md:text-base">
-            <form action="index.php?act=signup" method="POST">
+            <form action="index.php?act=signup" method="post">
                 <div class="email">
                     <label for="email" class="block text-slate-600 font-[600]">Email</label>
                     <input 

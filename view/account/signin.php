@@ -26,7 +26,7 @@
             </div>
             
             <div class="mt-[48px]">
-                <form action="index.php?act=sign_in" method="post" autocomplete="off">
+                <form action="" method="post" autocomplete="off">
                     <div class="email ">
                         <label for="email" class="block sm:text-2xl md:text-base text-slate-600 font-[600]">
                             Email

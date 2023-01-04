@@ -27,7 +27,7 @@
             </span>
         </div>
         <div>
-            <span class="text-gray-800">Showing all <?php echo count($list_product)?> results</span>
+            <span class="text--800">Showing all <?php echo count($list_product)?> results</span>
         </div>
     </div>
     <a href="index.php"></a>
@@ -39,9 +39,9 @@
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
                 <img class="w-full h-[240px]  bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
             </a>
-            <span class="text-slate-400"><?php foreach($list_cate as $cate){
+            <p class="text-slate-400 "><?php foreach($list_cate as $cate){
                 echo ($cate['cate_id'] == $pro['cate_id'] ? $cate['cate_name'] : ""); // Hiển thị category
-            }?></span>
+            }?></p>
             <!-- <p><?php echo ($list_cate['cate_id'] == $pro['cate_id'] ? $list_cate['cate_name'] : "")?></p> -->
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
                 <p class="text-teal-800 text-xl fold-semibold  "><?php echo $pro['pro_name']?></p>

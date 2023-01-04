@@ -65,24 +65,24 @@
             <span class="italic">GENCE - THỜI TRANG CÔNG SỞ</span>
         </div> <!-- End .p_shop-->
 <section class="content w-11/12 grid grid-cols-[75%25%] mt-8 mx-auto gap-2 ">
-    <div class="grid grid-cols-3 gap-x-4">
+    <div class="grid grid-cols-3 gap-x-4 ">
         <?php foreach($new_pro as $pro){?>
-        <div class="content-item min-h-[480px] text-center space-y-2">
+        <div class="content-item min-h-[480px] text-center space-y-2  ">
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
-                <img class="w-full h-[340px] bg-clip-padding bg-gray-200" src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
+                <img class="w-full h-[340px] bg-clip-padding bg-gray-200  " src="<?php echo substr($pro['pro_image'], 3);?>" alt="">
             </a>
-            <span class="text-slate-400"><?php foreach($list_cate as $cate){
+            <p class="text-slate-400"><?php foreach($list_cate as $cate){
                 echo ($cate['cate_id'] == $pro['cate_id'] ? $cate['cate_name'] : ""); // Hiển thị category
-            }?></span>
+            }?></p>
             <!-- <p><?php echo ($list_cate['cate_id'] == $pro['cate_id'] ? $list_cate['cate_name'] : "")?></p> -->
             <a href="index.php?act=detail_pro&pro_id=<?php echo $pro['pro_id']?>">
-                <p class="text-teal-800 text-xl fold-semibold  "><?php echo $pro['pro_name']?></p>
+                <p class="text-teal-800 text-xl fold-semibold   "><?php echo $pro['pro_name']?></p>
             </a>
             
-            <p class="px-2 text-red-600 font-bold">
+            <p class="px-2 text-red-600 font-bold  ">
                 <?php echo $pro['pro_price'] ." đ"?>
             </p>
-            <p class="px-2">
+            <p class="px-2  ">
                 Giá KM
             </p>
         </div> <!-- End .content-item-->
