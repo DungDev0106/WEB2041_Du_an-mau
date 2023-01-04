@@ -1,0 +1,42 @@
+===Cơ sở dữ liệu du_an_mau2022
+
+== Cấu trúc bảng cho bảng categories
+
+|------
+|Cột|Kiểu|Null|Mặc định
+|------
+|//**cate_id**//|int(11)|Không|
+|cate_name|varchar(255)|Không|
+== Đang đổ dữ liệu cho bảng categories
+
+|1|Thắt Lưng Nam
+|2|Túi Đeo Chéo
+|3|Ví Da update
+|4|Nước hoa trẻ em update
+|7|Nước hoa nữ update
+|19|Đồng hồ update
+|20|Túi cầm tay nam
+|21|Ví Da Nam
+|22|Thắt Lưng Da
+== Cấu trúc bảng cho bảng products
+
+|------
+|Cột|Kiểu|Null|Mặc định
+|------
+|//**pro_id**//|int(11)|Không|
+|pro_name|varchar(255)|Không|
+|pro_price|double(10,2)|Có|0.00
+|pro_image|varchar(255)|Có|NULL
+|pro_desc|text|Có|NULL
+|chat_lieu|varchar(255)|Không|
+|pro_view|int(11)|Có|0
+|cate_id|int(11)|Không|
+== Đang đổ dữ liệu cho bảng products
+
+|11|Túi sách nam cực chất|11111.00|../upload/tui_xach_nam1.webp| | |9|20
+|21|Đồng hồ|123123.00|../upload/tui_cheo1.webp|asasdfasfdasf| |20|2
+|22|Túi đeo chéo nam|123123.00|../upload/tui_cheo.webp|asdfasfdasfasfasf| |16|2
+|23|Túi đeo chéo nam|1212.00|../upload/tui_cheo5.webp|asfdasfasfddas| |90|2
+|24|Ví da|123123.00|../upload/vi_da1.jpg|asdfasdfasfd| |15|21
+|25|Ví da|2323.00|../upload/vi_da2.jpg|asdfasdf| |5|21
+|26|Ví da cầm tay nam khóa số|1230000.00|../upload/vi_da4.jpg|HÌnh ảnh sản phẩm 100% chụp bằng sản phẩm thật, do ánh sáng môi trường xung quanh| Da bò mill hạt nhỏ|100|21
