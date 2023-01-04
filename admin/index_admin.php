@@ -12,7 +12,8 @@
                 if(isset($_POST['add_cate'])){
                     $cate_name = $_POST['ten_loai'];
                     add_cate($cate_name);
-                    $thong_bao = "Thêm Thành Công";
+                    $thong_bao = "<span class='text-red-500'>Thêm Danh Mục Thành Công</span>";
+                    header("location:index_admin.php?act=list_cate");
                 }
                 include "category/add_cate.php";
                 break;
@@ -41,7 +42,7 @@
                     $cate_name = $_POST['ten_loai'];
                     $cate_id = $_POST['cate_id'];
                     update_cate($cate_id, $cate_name);
-                    $thong_bao = "Cập nhật thành công"; 
+                    $thong_bao = "*Cập nhật loại hàng thành công"; 
                 }
                 $list_cate = queryAll();
                 include "category/list_cate.php";
@@ -68,6 +69,8 @@
                         move_uploaded_file($_FILES['hinh_anh']['tmp_name'],$target_file);
                         add_pro($pro_name, $pro_price, $target_file, $pro_desc, $chat_lieu, $cate_id);
                         $thong_bao = "<span class = 'text-red-500'>Thêm sản phẩm thành công </span>";
+                        header("location:index_admin.php?act=list_pro");
+                        
                     }
                 }
                 $list_cate = queryAll();
